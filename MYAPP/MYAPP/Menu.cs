@@ -15,6 +15,17 @@ namespace MYAPP
         {
             people = new List<People>();
         }
+        public void Remove(People p)
+        {
+            people.Remove(p);
+        }
+        public void Print()
+        {
+            foreach(People p in people)
+            {
+                Console.WriteLine($"{p.Name} \t {p.PhoneNumber} \t {p.Address}");
+            }
+
         public void SaveToFile()
         {
             using (FileStream fs =
@@ -34,6 +45,7 @@ namespace MYAPP
                 people = (List<People>)xs.Deserialize(fs);
             }
             Console.WriteLine("Loaded from PhoneBook");
+
         }
     }
 }
