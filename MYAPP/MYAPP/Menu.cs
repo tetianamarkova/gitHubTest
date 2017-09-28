@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Soap;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +11,6 @@ namespace MYAPP
 {
     class Menu 
     {
-
         List<People> people;
         public Menu()
         {
@@ -29,7 +28,7 @@ namespace MYAPP
             p.Address = Console.ReadLine();
             people.Add(p);
             Console.WriteLine("Person is added");
-            Thread.Sleep(2000);
+
         }
         public void Sort()
         {
@@ -44,6 +43,7 @@ namespace MYAPP
             int i = Convert.ToInt32(Console.ReadLine());
             people.RemoveAt(i - 1);
             Console.WriteLine($"Persone is removed");
+
         }
         public void Print()
         {
@@ -60,7 +60,7 @@ namespace MYAPP
             using (FileStream fs =
                 new FileStream("PhoneBookXML.xml", FileMode.Create))
             {
-                SoapFormatter xs = new SoapFormatter();
+                BinaryFormatter xs = new BinaryFormatter();
                 xs.Serialize(fs, people);
             }
             Console.WriteLine("Saved to PhoneBook");
@@ -70,7 +70,7 @@ namespace MYAPP
             using (FileStream fs =
                 new FileStream("PhoneBookXML.xml", FileMode.Open))
             {
-                SoapFormatter xs = new SoapFormatter();
+                BinaryFormatter xs = new BinaryFormatter();
                 people = (List<People>)xs.Deserialize(fs);
             }
             Console.WriteLine("Loaded from PhoneBook");
