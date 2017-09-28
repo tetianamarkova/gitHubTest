@@ -17,9 +17,17 @@ namespace MYAPP
             people = new List<People>();
         }
 
-        public void Add(People p)
+        public void Add()
         {
+            People p = new People();
+            Console.WriteLine("Input Name -> ");
+            p.Name = Console.ReadLine();
+            Console.WriteLine("Input PhoneNumber -> ");
+            p.PhoneNumber = Console.ReadLine();
+            Console.WriteLine("Input Address -> ");
+            p.Address = Console.ReadLine();
             people.Add(p);
+            Console.WriteLine("Person is added");
         }
         public void Sort()
         {
@@ -27,16 +35,23 @@ namespace MYAPP
             foreach (var p in people)
                 Console.WriteLine(p);
         }
-        public void Remove(People p)
+        public void Remove()
         {
-            people.Remove(p);
+            Print();
+            Console.WriteLine("Input index -> ");
+            int i = Convert.ToInt32(Console.ReadLine());
+            people.RemoveAt(i - 1);
+            Console.WriteLine($"Persone is removed");
         }
         public void Print()
         {
-            foreach(People p in people)
+            int i = 1;
+            foreach (People p in people)
             {
-                Console.WriteLine($"{p.Name} \t {p.PhoneNumber} \t {p.Address}");
+                Console.WriteLine($"{i} {p.Name} \t {p.PhoneNumber} \t {p.Address}");
+                i++;
             }
+        }
 
         public void SaveToFile()
         {
