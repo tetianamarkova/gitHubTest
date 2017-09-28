@@ -10,10 +10,7 @@ namespace MYAPP
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            Console.WriteLine("Начать?(yes/no)");
-            string key = Console.ReadLine();
-            
+           
         }
     }
 }
