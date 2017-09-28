@@ -30,6 +30,7 @@ namespace MYAPP
                     Console.WriteLine("7 - Exit");
 
                     answer = Console.ReadLine();
+                    Console.Clear();
 
                     switch (answer)
                     {
