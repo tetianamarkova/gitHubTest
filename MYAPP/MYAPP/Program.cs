@@ -20,6 +20,7 @@ namespace MYAPP
             {
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("What do you want?");
                     Console.WriteLine("1 - Add user");
                     Console.WriteLine("2 - Remove user");

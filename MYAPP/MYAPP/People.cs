@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MYAPP
 {
+    [Serializable]
     class People
     {
         public string Name { get; set; }

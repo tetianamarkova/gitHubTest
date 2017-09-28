@@ -4,11 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MYAPP
 {
-    class Menu
+    class Menu 
     {
 
         List<People> people;
@@ -28,6 +29,7 @@ namespace MYAPP
             p.Address = Console.ReadLine();
             people.Add(p);
             Console.WriteLine("Person is added");
+            Thread.Sleep(2000);
         }
         public void Sort()
         {
